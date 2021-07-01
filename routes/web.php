@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-
-    Route::resource('Dropee','DropeeController');
 });
+Route::resource('Dropee','DropeeController');
+Route::resource('Admin','AdminController');
+Route::post('updateSequence','AdminController@updateSequence');

@@ -1,0 +1,59 @@
+<krpano>
+
+	<!-- looking direction -->
+	<view fov="90" fovmax="130" hlookat="40" vlookat="-3" />
+
+	<!-- pano -->
+	<preview url="https://imt.propelnetwork.com.my/img/1_superb.jpg" />
+	<image>
+		<sphere url="https://imt.propelnetwork.com.my/img/1_superb.jpg" />
+	</image>
+
+	<hotspot name="spot1" style="hotspot_ani_white" ath="-27.147" atv="-18.719"
+		         />
+
+		 <hotspot name="spot2" style="hotspot_ani_white" ath="-72.746" atv="-17.647"
+	 		         />
+
+	 <style name="hotspot_ani_white"
+	       url="skin/hotspot_ani_white_64x64x20.png"
+	       crop="0|0|64|64"
+	       frames="20" framewidth="64" frameheight="64" frame="0"
+	       onloaded="hotspot_animate();"
+	       />
+
+	<!-- hotspot animation code -->
+	<action name="hotspot_animate">
+		if(loaded,
+			inc(frame,1,get(frames),0);
+			mul(ypos,frame,frameheight);
+			txtadd(crop,'0|',get(ypos),'|',get(framewidth),'|',get(frameheight));
+			delayedcall(0.03, hotspot_animate() );
+		  );
+	</action>
+
+	<!-- container layer -->
+	<layer name="mapcontainer" type="container" bgcolor="0xFFFFFF" bgalpha="0.5" align="leftbottom" x="5" y="5" width="270" height="370">
+
+		<!-- maps plugin - use Google for HTML5 and Bing for Flash -->
+		<plugin name="map" keep="true"
+		        url.html5="%SWFPATH%/plugins/googlemaps.js"
+		        url.flash="%SWFPATH%/plugins/bingmaps.swf"
+		        key.html5=""
+		        key.flash=""
+		        maptype="SATELLITE"
+		        lat="2.8252" lng="101.705" zoom="16"
+		        align="lefttop" x="10" y="10" width="250" height="350"
+		        >
+
+			<radar visible="true" size="50" alpha="0.33" fillcolor="0xFFFFFF" fillalpha="1.0" linecolor="0x00FF00" linealpha="0.5" linewidth="0.5" dragable="true" headingoffset="0" />
+
+			<spot name="spot1" lat="2.856444" lng="101.727500" heading="-40" active="false" />
+			<spot name="spot2" lat="2.8252" lng="101.705" heading="-40" active="true" />
+			<spot name="spot3" lat="2.884722" lng="101.661389" heading="-40" active="false" />
+
+		</plugin>
+
+	</layer>
+
+</krpano>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Boxes;
 
 class DropeeController extends Controller
 {
@@ -13,8 +14,8 @@ class DropeeController extends Controller
      */
     public function index()
     {
-        $list 
-        return view('dropee',compact(''));
+        $boxes = Boxes::orderby('sequence')->get();;
+        return view('user.dropee',compact('boxes'));
     }
 
     /**

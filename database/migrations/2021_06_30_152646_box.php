@@ -13,7 +13,13 @@ class Box extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('boxes', function (Blueprint $table) {
+            $table->id();
+            $table->string('text')->nullable();
+            $table->string('style')->nullable();
+            $table->integer('sequence');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class Box extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('boxes');
     }
 }
