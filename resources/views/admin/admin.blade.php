@@ -20,7 +20,7 @@
         }
 
         .boxes{
-            margin-top : 20vh;
+            margin-top : 15vh;
             margin-left : 18vw;
             width: 70%;
         }
@@ -63,12 +63,14 @@
                         {{ session('alert') }} <i class="fa fa-times" aria-hidden="true" onclick="$('#alert').hide()" style="float:right;"></i>
                     </div>
                 @endif
-        
-                @if (session('error'))
-                    <div id="warning" class="alert alert-danger">
-                        {{ session('error') }} <i class="fa fa-times" aria-hidden="true" onclick="$('#warning').hide()" style="float:right;"></i>
-                    </div>
-                @endif
+    
+                <div id="warning" class="alert alert-danger">
+                    <i class="fa fa-times" aria-hidden="true" onclick="$('#warning').hide()" style="float:right;"></i>
+                    Instruction : 
+                    Reorder - Drag & Drop to Reorder <br>
+                    Style - Click to Style <br>
+                    Input - Style is exactly what you set in CSS 
+                </div>
             </div>
         </div>
 

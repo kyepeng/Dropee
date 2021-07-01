@@ -17,7 +17,7 @@ class Box extends Migration
             $table->id();
             $table->string('text')->nullable();
             $table->string('style')->nullable();
-            $table->integer('sequence');
+            $table->integer('sequence')->default('0');
             $table->timestamps();
         });
     }
